@@ -1,10 +1,12 @@
-class Bubble { //<>//
+
+class Bubble { 
   int bSize;
   int[] bColor;
   int x;
   int y;
   int a;
   int b;
+ 
   Bubble() {
     bSize = (int) (Math.random() * 80) + 20;
     x = (int) (Math.random() * width);
@@ -12,8 +14,7 @@ class Bubble { //<>//
     int a = 0;
     int b = 255;
     bColor = new int[3];
-    for (int i =0; i < bColor.length; i++)
-    {
+    for (int i =0; i < bColor.length; i++) {
       bColor[i] = (int)(Math.random()*150);
     }
   }
@@ -25,9 +26,18 @@ class Bubble { //<>//
     x += w;
     y -= r;
   }
-
-  void show() {
+    void show() {
     fill(bColor[0], bColor[1], bColor[2]);
     ellipse(x, y, bSize, bSize);
+  }
+  
+  boolean isBlue() {
+    // Check if bubble is blue
+    return (bColor[0] == 0 && bColor[1] == a && bColor[2] == b);
+  }
+  
+  int getY() {
+    // Get y-coordinate of bubble
+    return y;
   }
 }
